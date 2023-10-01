@@ -39,13 +39,14 @@ public class EmployeeController {
     @DeleteMapping("/delete")
     public void deleteEmployee(@RequestParam("id") Long id){
         employeeService.deleteEmployee(id);
-        
+
     }
 
 
     @PutMapping("/edit/{id}")
     public Employee updateEmployee(@PathVariable("id") Long id, @RequestBody Employee employee){
         System.out.println("Updating the employee data for the id: "+id);
+        employee.setId(id);
         return employeeService.editEmployee(employee);
     }
     @PostMapping("/add")
