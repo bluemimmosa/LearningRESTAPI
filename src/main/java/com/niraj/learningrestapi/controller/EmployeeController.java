@@ -13,6 +13,7 @@ import java.util.List;
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
+    /*
     //used for reading application.properties key value pairs.
     @Value("${app.name}")
     private String appName;
@@ -24,29 +25,31 @@ public class EmployeeController {
     public String getAppDetails(){
         return "The app anme is "+appName+" and the version is "+appVersion;
     }
+    */
     @GetMapping("/all")
     public List<Employee> getEmployees(){
         return employeeService.getEmployees();
     }
 
     @GetMapping("/{id}")
-    public String getEmployee(@PathVariable("id") Long id){
-        return "fetching the employee details for the id "+id;
+    public Employee getEmployee(@PathVariable("id") Long id){
+        return employeeService.findEmployeeById(id);
     }
 
     @DeleteMapping("/delete")
-    public String deleteEmployee(@RequestParam("id") Long id){
-        return "Succesffully deleted emplopyee with id "+id;
+    public void deleteEmployee(@RequestParam("id") Long id){
+        employeeService.deleteEmployee(id);
+        
     }
 
 
     @PutMapping("/edit/{id}")
     public Employee updateEmployee(@PathVariable("id") Long id, @RequestBody Employee employee){
         System.out.println("Updating the employee data for the id: "+id);
-        return employee;
+        return employeeService.editEmployee(employee);
     }
     @PostMapping("/add")
-    public String saveEmployee(@RequestBody Employee employee){
-        return "Saving the meplopyee details tot he databese. "+employee;
+    public Employee saveEmployee(@RequestBody Employee employee){
+        return employeeService.createEmployee(employee);
     }
 }
