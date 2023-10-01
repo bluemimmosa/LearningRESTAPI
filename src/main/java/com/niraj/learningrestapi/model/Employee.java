@@ -2,8 +2,11 @@ package com.niraj.learningrestapi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,4 +32,10 @@ public class Employee {
     private String email;
     @Column(name="department")
     private String department;
+    @CreationTimestamp
+    @Column(name="created_at", nullable = false, updatable = false)
+    private Date createdAt;
+    @UpdateTimestamp
+    @Column(name="updated_at", nullable = true, updatable = true)
+    private Date updatedAt;
 }
