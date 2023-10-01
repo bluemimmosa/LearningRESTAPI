@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
@@ -22,19 +23,20 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
-    @NotNull
+    @NotNull(message = "Name should not be null!!!")
     @Column(name="name")
     private String name;
     //@JsonIgnore // to ignore the name value pair so it gets hidden in json response.
     @Column(name="age")
     private Long age = 0L;
-    @NotNull
+    @NotNull(message = "Location should not be null!!!")
     @Column(name="location")
     private String location;
     @NotNull
+    @Email(message = "Please input the valid email address!!")
     @Column(name="email")
     private String email;
-    @NotNull
+    @NotNull(message = "Department should not be null!!!")
     @Column(name="department")
     private String department;
     @CreationTimestamp
