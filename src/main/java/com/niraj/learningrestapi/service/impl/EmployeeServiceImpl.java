@@ -4,6 +4,8 @@ import com.niraj.learningrestapi.model.Employee;
 import com.niraj.learningrestapi.repository.EmployeeRepository;
 import com.niraj.learningrestapi.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,8 +18,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
 
     @Override
-    public List<Employee> getEmployees() {
-        return employeeRepository.findAll();
+    public List<Employee> getEmployees(int pageNumber, int pageSize) {
+        Pageable pages = PageRequest.of(pageNumber, pageSize);
+        return employeeRepository.findAll(pages).getContent();
     }
 
     @Override
