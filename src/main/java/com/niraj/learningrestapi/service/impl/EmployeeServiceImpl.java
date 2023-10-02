@@ -44,4 +44,19 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void deleteEmployee(Long id) {
         employeeRepository.deleteById(id);
     }
+
+    @Override
+    public List<Employee> getEmployeesByName(String name) {
+        return employeeRepository.findByName(name);
+    }
+
+    @Override
+    public List<Employee> getEmployeesByNameContaining(String name) {
+        return employeeRepository.findByNameContaining(name);
+    }
+
+    @Override
+    public List<Employee> getEmployeesByNameAndLocation(String name, String location) {
+        return employeeRepository.findByNameAndLocation(name, location);
+    }
 }

@@ -12,4 +12,9 @@ public interface EmployeeService {
     public Employee editEmployee(Employee employee);
 
     void deleteEmployee(Long id);
+
+    public List<Employee> getEmployeesByName(String name);
+    public List<Employee> getEmployeesByNameContaining(String name);
+
+    public List<Employee> getEmployeesByNameAndLocation(String name, String location);
 }
