@@ -70,4 +70,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         return employeeRepository.findByNameAndLocation(name, location);
     }
+
+    @Override
+    public Integer deleteEmployeesByNameMyImpl(String name) {
+        return employeeRepository.deleteEmployeeByNameMyImpl(name);
+    }
 }

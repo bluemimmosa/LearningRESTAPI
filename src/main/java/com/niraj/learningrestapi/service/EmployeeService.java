@@ -19,4 +19,6 @@ public interface EmployeeService {
     public List<Employee> getEmployeesByNameContaining(String name);
 
     public List<Employee> getEmployeesByNameAndLocation(String name, String location);
+
+    public Integer deleteEmployeesByNameMyImpl(String name);
 }

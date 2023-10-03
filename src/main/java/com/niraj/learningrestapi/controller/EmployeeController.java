@@ -60,6 +60,13 @@ public class EmployeeController {
 
     }
 
+    @DeleteMapping("/deleteEmployeeBy")
+    public ResponseEntity<String> deleteEmployeeByName(@RequestParam("name") String name){
+
+        return new ResponseEntity<String> (employeeService.deleteEmployeesByNameMyImpl(name)+"no of records deleted.", HttpStatus.OK);
+
+    }
+
     @GetMapping("/filterByNameAndLocation")
     public ResponseEntity<List<Employee>> getEmployeeByNameAndLocation(@RequestParam("name") String name, @RequestParam("location") String location){
         return new ResponseEntity<List<Employee>>(employeeService.getEmployeesByNameAndLocation(name, location), HttpStatus.OK);
