@@ -20,7 +20,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public List<Employee> getEmployees(int pageNumber, int pageSize) {
-        Pageable pages = PageRequest.of(pageNumber, pageSize, Sort.Direction.DESC, "id");
+        Pageable pages = PageRequest.of(pageNumber, pageSize, Sort.Direction.ASC, "name");
         return employeeRepository.findAll(pages).getContent();
     }
 
