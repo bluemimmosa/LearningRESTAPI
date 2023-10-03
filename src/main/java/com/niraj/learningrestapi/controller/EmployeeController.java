@@ -33,6 +33,11 @@ public class EmployeeController {
         return new ResponseEntity<List<Employee>>(employeeService.getEmployees(pageNumber, pagesize), HttpStatus.OK);
     }
 
+    @GetMapping("/filterByNameOrLocation")
+    public ResponseEntity<List<Employee>> getEmployeesByNameOrLocation(@RequestParam("name") String name, @RequestParam("location") String location){
+        return new ResponseEntity<List<Employee>>(employeeService.getEmployeesByNameOrLocation(name, location), HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Employee> getEmployee(@PathVariable("id") Long id){
         return new ResponseEntity<Employee>(employeeService.findEmployeeById(id), HttpStatus.OK);

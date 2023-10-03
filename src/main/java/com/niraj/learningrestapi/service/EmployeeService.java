@@ -7,6 +7,8 @@ import java.util.List;
 public interface EmployeeService {
 
     public List<Employee> getEmployees(int pageNumber, int pageSize);
+
+    public List<Employee> getEmployeesByNameOrLocation(String name, String location);
     public Employee findEmployeeById(Long id);
     public Employee createEmployee(Employee employee);
     public Employee editEmployee(Employee employee);

@@ -25,6 +25,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    public List<Employee> getEmployeesByNameOrLocation(String name, String location) {
+        return employeeRepository.getEmployeesByNameOrLocation(name, location);
+    }
+
+    @Override
     public Employee findEmployeeById(Long id) {
         Optional<Employee> emp = employeeRepository.findById(id);
         if(emp.isPresent()){
