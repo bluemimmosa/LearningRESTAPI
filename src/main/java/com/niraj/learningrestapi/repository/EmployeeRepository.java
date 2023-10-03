@@ -1,6 +1,7 @@
 package com.niraj.learningrestapi.repository;
 
 import com.niraj.learningrestapi.model.Employee;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
@@ -15,5 +16,7 @@ public interface EmployeeRepository extends PagingAndSortingRepository<Employee,
 
     //SELECT * FROM table WHERE name="niraj" AND location="NEPAL";
     public List<Employee> findByNameAndLocation(String name, String location);
-    public List<Employee> findByNameContaining(String name);
+
+    //SELECT * FROM table WHERE name LIKE %ram%;
+    public List<Employee> findByNameContaining(String name, Sort sort);
 }
