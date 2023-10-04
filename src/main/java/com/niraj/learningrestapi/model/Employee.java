@@ -12,8 +12,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
-
-
+@NoArgsConstructor
 @Setter
 @Getter
 @ToString
@@ -35,6 +34,7 @@ public class Employee {
     public Employee(EmployeeRequest req){
         this.name = req.getName();
     }
+
 
     //@JsonIgnore // to ignore the name value pair so it gets hidden in json response.
 

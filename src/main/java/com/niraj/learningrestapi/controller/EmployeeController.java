@@ -106,4 +106,9 @@ public class EmployeeController {
         employee = employeeService.createEmployee(employee);
         return new ResponseEntity<Employee>(employee, HttpStatus.CREATED);
     }
+
+    @GetMapping("getByDepartment")
+    public ResponseEntity<List<Employee>> getEmployeesByDepartment(@RequestParam("deptname") String name){
+        return new ResponseEntity<List<Employee>>(employeeService.getByDepartmentName(name), HttpStatus.OK);
+    }
 }
