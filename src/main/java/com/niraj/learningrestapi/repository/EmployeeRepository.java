@@ -34,8 +34,8 @@ public interface EmployeeRepository extends PagingAndSortingRepository<Employee,
 
  */
 
-    List<Employee> findByDepartmentName(String name);
-
-    @Query("FROM Employee WHERE department.name = :name")
-    List<Employee> getemployeesByDepartmentName(String name);
+//    List<Employee> findByDepartmentName(String name);
+//
+//    @Query("FROM Employee WHERE department.name = :name")
+//    List<Employee> getemployeesByDepartmentName(String name);
 }

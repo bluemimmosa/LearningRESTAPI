@@ -98,6 +98,7 @@ public class EmployeeController {
     }
     @PostMapping("/add")
     public ResponseEntity<Employee> saveEmployee(@Valid @RequestBody EmployeeRequest employeeRequest){
+        /* One to One mapping.
         Department dept = new Department();
         dept.setName(employeeRequest.getDepartment());
         dept = departmentService.createDepartment(dept);
@@ -105,10 +106,20 @@ public class EmployeeController {
         employee.setDepartment(dept);
         employee = employeeService.createEmployee(employee);
         return new ResponseEntity<Employee>(employee, HttpStatus.CREATED);
+         */
+        Employee employee = new Employee(employeeRequest);
+        employee = employeeService.createEmployee(employee);
+        for(String a: employeeRequest.getDepartment()){
+            Department d = new Department();
+            d.setName(a);
+            d.setEmployee(employee);
+            departmentService.createDepartment(d);
+        }
+        return new ResponseEntity<Employee>(employee, HttpStatus.CREATED);
     }
 
-    @GetMapping("getByDepartment")
-    public ResponseEntity<List<Employee>> getEmployeesByDepartment(@RequestParam("deptname") String name){
-        return new ResponseEntity<List<Employee>>(employeeService.getByDepartmentName(name), HttpStatus.OK);
-    }
+//    @GetMapping("getByDepartment")
+//    public ResponseEntity<List<Employee>> getEmployeesByDepartment(@RequestParam("deptname") String name){
+//        return new ResponseEntity<List<Employee>>(employeeService.getByDepartmentName(name), HttpStatus.OK);
+//    }
 }

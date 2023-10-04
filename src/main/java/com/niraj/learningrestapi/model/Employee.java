@@ -27,9 +27,9 @@ public class Employee {
     @NotBlank(message = "Name should not be null!!!")
     @Column(name="name")
     private String name;
-    @JoinColumn(name = "department_id")
-    @OneToOne
-    private Department department;
+//    @JoinColumn(name = "department_id")
+//    @OneToOne
+//    private Department department;
 
     public Employee(EmployeeRequest req){
         this.name = req.getName();

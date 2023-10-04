@@ -57,10 +57,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeRepository.deleteById(id);
     }
 
-    @Override
-    public List<Employee> getByDepartmentName(String name) {
-        return employeeRepository.getemployeesByDepartmentName(name);
-    }
+//    @Override
+//    public List<Employee> getByDepartmentName(String name) {
+//        return employeeRepository.getemployeesByDepartmentName(name);
+//    }
 
     /*
     @Override
