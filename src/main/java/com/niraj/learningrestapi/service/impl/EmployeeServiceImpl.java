@@ -24,10 +24,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeRepository.findAll(pages).getContent();
     }
 
+    /*
     @Override
     public List<Employee> getEmployeesByNameOrLocation(String name, String location) {
         return employeeRepository.getEmployeesByNameOrLocation(name, location);
     }
+
+     */
 
     @Override
     public Employee findEmployeeById(Long id) {
@@ -54,6 +57,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeRepository.deleteById(id);
     }
 
+    /*
     @Override
     public List<Employee> getEmployeesByName(String name) {
         return employeeRepository.findByName(name);
@@ -75,4 +79,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Integer deleteEmployeesByNameMyImpl(String name) {
         return employeeRepository.deleteEmployeeByNameMyImpl(name);
     }
+
+     */
 }

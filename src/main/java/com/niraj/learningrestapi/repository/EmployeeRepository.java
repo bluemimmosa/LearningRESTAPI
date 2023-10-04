@@ -13,7 +13,7 @@ import java.util.List;
 
 @Repository
 public interface EmployeeRepository extends PagingAndSortingRepository<Employee, Long> {
-
+/*
     public List<Employee> findByName(String name);
     //findByFiledName()
 
@@ -31,4 +31,6 @@ public interface EmployeeRepository extends PagingAndSortingRepository<Employee,
     @Modifying //for those quesries that modifies the data.
     @Query("DELETE FROM Employee WHERE name = :name")
     public Integer deleteEmployeeByNameMyImpl(String name);
+
+ */
 }
